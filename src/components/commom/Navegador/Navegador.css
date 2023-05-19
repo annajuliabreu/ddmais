@@ -12,6 +12,10 @@
     top: 0;
     left: 0;
 }
+
+.nav .div-right .a:hover{
+    cursor: pointer;
+}
   
 .nav .botao-login{
     display: flex;
