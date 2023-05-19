@@ -5,7 +5,6 @@ function App(){
   return(
     <div>
      <PaginaPrincipal />
-     <h1>oi!</h1>
     </div>
   )
 }
