@@ -13,8 +13,8 @@ export function Navegador(){
             </div>
            
            <div className="div-left">
-                <a className="botao-login" href="https://instagram.com/ddmais.ufc">Login</a>
-                <a className="botao-cadastrar" href="https://instagram.com/ddmais.ufc">Criar conta</a>
+                <a className="botao-login" href="/ddmais/login">Login</a>
+                <a className="botao-cadastrar" href="ddmais/cadastro">Criar conta</a>
            </div>
         </nav>
     )

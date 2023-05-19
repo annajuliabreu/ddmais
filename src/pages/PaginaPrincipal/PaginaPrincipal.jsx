@@ -1,6 +1,6 @@
 import { Fragment } from "react";
-import { Navegador } from "../../commom/Navegador/Navegador";
-import { Galeria } from "../../commom/Galeria/Galeria"
+import { Navegador } from "../../components/Navegador/Navegador";
+import { Galeria } from "../../components/Galeria/Galeria"
 
 export function PaginaPrincipal() {
     return (
