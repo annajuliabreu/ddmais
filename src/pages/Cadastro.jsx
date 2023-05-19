@@ -1,13 +1,14 @@
-import logo from '../assets/logo.png'
+// import logo from '../assets/logo.png'
 import cadastroImg from '../assets/cadastro.png'
 import { Button, TextField } from '@mui/material';
+
 function Cadastro() {
   return (
-    <div style={{ display: 'flex' }}>
+    <div style={{ display: 'flex', height:"100vh" }}>
       <div style={{ background: `url(${cadastroImg}) fixed no-repeat`, width: "calc(50% + 99px)", height: "100vh"}}>
       </div>
       <div style={{ display:'flex', flexDirection:'column', flex:1, alignItems:'center', height:'100vh', justifyContent:'center'}}>
-        <img src={logo} style={{marginBottom: 29}} />
+        <img src="https://raw.githubusercontent.com/annajuliabreu/ddmais/b82e1d124f0e3bbc205bb84a12b1b6d3342a9b91/public/logo.svg" style={{marginBottom: 29}} />
         <h1 style={{fontFamily:'Montserrat', margin: '16px 0px'}}> Criar uma conta</h1>
           <form style={{ marginTop: 12, display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
             <TextField style={{ marginBottom:8}} id="standard-basic" label="Nome Completo" variant="standard" />
