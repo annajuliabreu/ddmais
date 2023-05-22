@@ -28,7 +28,7 @@
     background-color: #D9BBFF;
     text-decoration: none;
     cursor: pointer;
-    margin-right: 12px;
+    /* margin-right: 12px; */
 }
 
 .nav .botao-login:hover{
@@ -48,6 +48,7 @@
     border-radius: 4px;
     text-decoration: none;
     cursor: pointer;
+    margin-right: 12px;
 }
 
 .nav .botao-cadastrar:hover{

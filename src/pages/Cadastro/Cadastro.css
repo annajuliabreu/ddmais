@@ -1,0 +1,56 @@
+*{
+    text-decoration: none;
+}
+
+.div-voltar{
+    padding: 24px;
+    margin-left: auto;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    left: 0;
+}
+
+.div-conteudo{
+    display: flex;
+    height: 100vh;
+}
+
+.div-img{
+    /* background: `url(${cadastroImg}) fixed no-repeat; */
+    width: calc(50% + 99px);
+    height: 100vh;
+}
+
+.div-forms{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+}
+
+.div-forms-logo{
+    margin-bottom: 29px;
+}
+
+.div-forms-text{
+    margin: 16px 0px;
+}
+
+.div-forms-input{
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.div-forms-botao{
+    display: flex;
+}
+
+.text-field{
+    margin-bottom: 8px;
+}
