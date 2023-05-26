@@ -72,7 +72,7 @@ export function Galeria() {
                             )
                         )
     return (
-        <div className="conteudo">
+        <div className="conteudo-galeria">
             {cards}
         </div>
     )

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 
 
-.conteudo{
+.conteudo-galeria{
     display: flex;
     box-sizing: border-box;
     align-items: center;
@@ -12,7 +12,7 @@
     margin-top: 112px;
 }
 
-.conteudo .img{
+.conteudo-galeria .img{
     display: block;
     box-sizing: border-box;
     /* margin: 12px; */

@@ -9,16 +9,32 @@
     background-color: #D9BBFF;
     text-decoration: none;
     cursor: pointer;
-    margin-top: 36px;
+    margin-top: 24px;
 }
 
 .conteudo{
     display: flex;
-    flex-direction: column;
+    box-sizing: border-box;
+    align-items: center;
     justify-content: center;
-    /* align-items: center; */
+    padding: 36px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-top: 112px;
 }
 
 .conteudo .h1{
     margin-bottom: 16px;
+}
+
+.conteudo .img-erro404{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1000px;
+}
+
+.conteudo .mensagem-erro404{
+    position: absolute;
+    margin-top: 280px;
 }
