@@ -1,5 +1,6 @@
 import "./Navegador.css"
 import "./logo.svg"
+import { Link, NavLink } from "react-router-dom"
 
 export function Navegador(){
     // let Botao = (props) => (<a className="link-navegador" href="https://instagram.com/ddmais.ufc">{props.linkTexto}</a>);
@@ -7,14 +8,30 @@ export function Navegador(){
     return(
         <nav className="nav">
             <div className="div-right">
-                <a href="/ddmais"><img className="img" src="https://raw.githubusercontent.com/annajuliabreu/ddmais/b82e1d124f0e3bbc205bb84a12b1b6d3342a9b91/public/logo.svg" alt="" /></a>
-                <a className="botao-home" href="/ddmais">Home</a>
-                <a className="botao-explorar" href="https://instagram.com/ddmais.ufc">Explorar</a>
+                <Link exact to="/"><img className="img" src="https://raw.githubusercontent.com/annajuliabreu/ddmais/b82e1d124f0e3bbc205bb84a12b1b6d3342a9b91/public/logo.svg" alt="" /></Link>
+
+                <div className="links">
+                    <NavLink 
+                        exact 
+                        to="/" 
+                        className="botao-explorar">
+                            Home
+                    </NavLink>
+
+                    <NavLink 
+                        to="/explorar" 
+                        className="botao-explorar">
+                            Explorar
+                    </NavLink>
+                </div>
+
+                {/* <a className="botao-home" href="/ddmais">Home</a> */}
+                {/* <a className="botao-explorar" href="https://instagram.com/ddmais.ufc">Explorar</a> */}
             </div>
            
            <div className="div-left">
-                <a className="botao-cadastrar" href="ddmais/cadastro">Criar conta</a>
-                <a className="botao-login" href="/ddmais/login">Login</a>
+                <Link className="botao-cadastrar" to="/criarconta">Criar conta</Link>
+                <Link className="botao-login" to="/login">Login</Link>
            </div>
         </nav>
     )

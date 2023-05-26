@@ -36,7 +36,8 @@
 }
 
 .div-forms-text{
-    margin: 16px 0px;
+    margin: 8px 0px;
+    /* font-weight: bold; */
 }
 
 .div-forms-input{

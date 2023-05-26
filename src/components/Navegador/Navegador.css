@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
 .nav{
     width: 100vw;
     height: 112px;
@@ -13,8 +15,18 @@
     left: 0;
 }
 
-.nav .div-right .a:hover{
-    cursor: pointer;
+.nav .img{
+    padding: 18px 0px 0px 0px;
+}
+
+.nav .links{
+    margin-left: 16px;
+    display: flex;
+}
+
+.nav .div-left{
+    margin-left: auto;
+    display: flex;
 }
   
 .nav .botao-login{
@@ -55,6 +67,11 @@
     background-color: #cba4ff2d;
 }
 
+.nav .div-right{
+    display: flex;
+    align-items: center;
+}
+
 .nav .botao-home{
     display: flex;
     flex-direction: row;
@@ -71,6 +88,10 @@
 
 .nav .botao-home:hover{
     background-color: #cba4ff2d;
+}
+
+.nav .botao-home.active{
+    font-weight: bold;
 }
 
 .nav .botao-explorar{
@@ -90,16 +111,7 @@
     background-color: #cba4ff2d;
 }
 
-.nav .div-right{
-    display: flex;
-    align-items: center;
+.nav .botao-explorar.active{
+    font-weight: bold;
 }
 
-.nav .div-left{
-    margin-left: auto;
-    display: flex;
-}
-
-.nav .img{
-    padding: 18px 0px 0px 0px;
-}

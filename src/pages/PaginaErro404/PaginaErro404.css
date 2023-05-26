@@ -1,0 +1,24 @@
+.botao-voltar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 42px;
+    border-radius: 4px;
+    background-color: #D9BBFF;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 36px;
+}
+
+.conteudo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.conteudo .h1{
+    margin-bottom: 16px;
+}
