@@ -9,6 +9,9 @@
     align-items: center;
     padding: 36px;
     border-bottom: 1px solid #ECECEC;
+    box-sizing: border-box;
+
+    overflow: hidden;
 
     position: fixed;
     top: 0;

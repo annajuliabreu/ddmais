@@ -14,18 +14,18 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exac path="/" element={<PaginaPrincipal />} />
+          <Route exac path="/ddmais" element={<PaginaPrincipal />} />
           <Route path="/home" element={<PaginaPrincipal />} />
           <Route path="/explorar" element={<Explorar />} />
           <Route path="/criarconta" element={<CriarConta />} />
           <Route path="/login" element={<Login />} />
 
-          <Route exact path="/projeto" element={<Projeto />}/>
-          {/* <Route path="/projeto/:id" element={<Projeto />}></Route> */}
+          <Route exact path='/projeto' element={<Projeto />}/>
+          {/* <Route exact path="/projeto/:id" element={<Projeto />}></Route> */}
 
-          {/* Na configuração da rota, coloca o nome do 
-          parâmetro no final do path junto com dois pontos(:). 
-          Ex.: path="/:id" */}
-          <Route exact path="/projeto/:id" component={Projeto}></Route>
+
+          {/* <Route path='/projeto/:id' component={Projeto}/> */}
+
 
           <Route path="*" element={<PaginaErro404 />}/>
         </Routes>

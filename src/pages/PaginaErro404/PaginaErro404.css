@@ -12,6 +12,10 @@
     margin-top: 24px;
 }
 
+.botao-voltar:hover{
+    background-color: #B276FF;
+}
+
 .conteudo{
     display: flex;
     box-sizing: border-box;
@@ -38,3 +42,4 @@
     position: absolute;
     margin-top: 280px;
 }
+
