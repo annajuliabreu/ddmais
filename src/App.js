@@ -1,14 +1,31 @@
 import './App.css';
+import * as React from 'react';
 import { PaginaPrincipal } from './pages/PaginaPrincipal/PaginaPrincipal';
-import { Routes, Route, BrowserRouter } from "react-router-dom"
+import { Routes, Route, BrowserRouter, useParams} from "react-router-dom"
 import Login from './pages/Login/Login';
 import CriarConta from './pages/CriarConta/CriarConta';
 import Explorar from './pages/Explorar/Explorar';
-import Projeto from './pages/Projeto/Projeto';
 import PaginaErro404 from './pages/PaginaErro404/PaginaErro404';
-// import history from './history'
+
+import { Navegador } from './components/Navegador/Navegador';
+import { Modal } from './components/Modal/Modal';
+import { Galeria } from './components/Galeria/Galeria';
+
+export function Projeto(){
+  let { id } = useParams();
+  console.log("projectId: ", id);
+
+  return(
+    <div>
+      <Navegador />
+      <Modal />
+      <Galeria />
+    </div>
+  )
+}
 
 function App() {
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -20,12 +37,8 @@ function App() {
           <Route path="/criarconta" element={<CriarConta />} />
           <Route path="/login" element={<Login />} />
 
-          <Route exact path='/projeto' element={<Projeto />}/>
-          {/* <Route exact path="/projeto/:id" element={<Projeto />}></Route> */}
-
-
-          {/* <Route path='/projeto/:id' component={Projeto}/> */}
-
+          <Route exact path="/projeto" element={<Projeto />}/>
+          <Route exact path="/projeto/:id" element={<Projeto />} ></Route>
 
           <Route path="*" element={<PaginaErro404 />}/>
         </Routes>

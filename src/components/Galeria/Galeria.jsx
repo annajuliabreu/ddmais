@@ -1,15 +1,21 @@
 import "./Galeria.css"
+import React from 'react';
+// import { useHistory } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 export function Card({ projeto }) {
+    const navigate = useNavigate();
+
     function handleClick(e){
         e.preventDefault();
         console.log("clicou");
+        navigate("/projeto/"+projeto.id);
     }
     return (
         <div className="box" onClick={handleClick}>
             <div className="overlay-image">
-                <img className="img" src={projeto.imgLink} alt="" />
                 <div className="overlay"></div>
+                <img className="img" src={projeto.imgLink} alt="" />
             </div>
             <div><span className="legenda">{projeto.legenda}</span></div>
         </div>
