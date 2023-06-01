@@ -10,17 +10,16 @@
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.modal-content{
+.modal-content-project {
     width: 90%;
     height: 95%;
-    overflow: scroll;
+    overflow: auto;
     background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 4px;
-    /* margin-top: 48px; */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
 }
 
@@ -88,4 +87,91 @@
     bottom: 0;
     display: flex;
     justify-content: flex-end;
+}
+
+.create-project-form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.inputs-fields {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.create-project-field {
+    width: 100%;
+}
+.create-project-field-wrap {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 100px;
+}
+
+.buttons-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.upload {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+}
+
+.upload-area {
+    border: 2px dashed #E6D2FF;
+    border-radius: 8px;
+    width: 323px;
+    height: 268px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 32px;
+}
+
+.upload-info {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: rgba(0, 0, 0, 0.35);
+    margin-top: 42px;
+}
+
+.upload-title {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: rgba(0, 0, 0, 0.54);
+    margin-bottom: 18px;
+}
+
+.upload-button {
+    box-shadow: 0px 3px 5px -2px rgba(0, 0, 0, 0.2), 0px 2px 3px rgba(0, 0, 0, 0.14), 0px 1px 5px rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
 }

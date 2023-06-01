@@ -1,21 +1,294 @@
-import './ModalCadastrarProjeto.css'
-import Icon from '@mdi/react';
-import { mdiClose } from '@mdi/js';
+import "./ModalCadastrarProjeto.css";
+import Icon from "@mdi/react";
+import { mdiClose } from "@mdi/js";
+import { TextField, Button } from "@mui/material";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import ListItemText from "@mui/material/ListItemText";
+import Select from "@mui/material/Select";
+import Checkbox from "@mui/material/Checkbox";
+import { useState } from "react";
 
-export default function ModalCadastrarProjeto(){
-    return(
-        <div>
-            <div>
-            <div className="modal-overlay">
-                <div className="voltar">
-                    <a href="/"><Icon path={mdiClose} size={1} /></a>
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 250,
+    },
+  },
+};
+
+const disciplinas = [
+  "Processos de Criação",
+  "Tipografia",
+  "Multimídia",
+  "User Experience",
+  "Arquitetura da Informação",
+  "Desenho I",
+  "Desenho II",
+  "História da Arte",
+  "Direção de Arte",
+  "Modelagem 3D",
+  "História do Design",
+];
+const metodologias = [
+  "Metodologia Ágil",
+  "Design Sprint",
+  "Brainstorming",
+  "Double Diamond",
+  "Design Thinking",
+];
+
+const camposDeCriacao = [];
+
+const ferramentas = [];
+
+const anos = [];
+
+export default function ModalCadastrarProjeto() {
+  const [personName, setPersonName] = useState([]);
+
+  const handleChange = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setPersonName(typeof value === "string" ? value.split(",") : value);
+  };
+  return (
+    <div>
+      <div>
+        <div className="modal-overlay">
+          <div className="voltar">
+            <a href="/">
+              <Icon path={mdiClose} size={1} />
+            </a>
+          </div>
+
+          <div className="modal-content-project">
+            <form className="create-project-form">
+              <div className="upload">
+                <div className="card-upload">
+                  <span className="upload-title">Capa do projeto</span>
+                  <div className="upload-area">
+                    <Button
+                      className="upload-button"
+                      size="large"
+                      style={{
+                        textTransform: "none",
+                        background: "#B276FF",
+                        fontFamily: "Montserrat",
+                        color: "#FFF",
+                        padding: "6px 22px",
+                      }}
+                    >
+                      Fazer upload da imagem
+                    </Button>
+                    <span className="upload-info">
+                      Tamanho mínimo de ”808x632px”
+                    </span>
+                  </div>
                 </div>
 
-                <div className="modal-content">
-                    
+                <div className="card-upload">
+                  <span className="upload-title">Apresentação do projeto</span>
+                  <div className="upload-area">
+                    <Button
+                      className="upload-button"
+                      size="large"
+                      style={{
+                        textTransform: "none",
+                        background: "#B276FF",
+                        fontFamily: "Montserrat",
+                        color: "#FFF",
+                        padding: "6px 22px",
+                      }}
+                    >
+                      Fazer upload da imagem
+                    </Button>
+                    <span className="upload-info">
+                      Insira imagens no tamanho "1920x1080”
+                    </span>
+                  </div>
                 </div>
-            </div>
+              </div>
+              <div className="inputs-fields">
+                <h1>Cadastrar projeto</h1>
+                <div className="create-project-field-wrap">
+                  <TextField
+                    id="standard-required"
+                    label="Adicione um título para o Projeto"
+                    variant="standard"
+                    className="create-project-field"
+                  />
+                </div>
+
+                <div className="create-project-field-wrap">
+                  <TextField
+                    id="standard-required"
+                    label="Descrição do Projeto"
+                    variant="standard"
+                    className="create-project-field"
+                  />
+                </div>
+                <div className="create-project-field-wrap">
+                  <FormControl className="create-project-field">
+                    <InputLabel id="demo-multiple-checkbox-label">
+                      Disciplina
+                    </InputLabel>
+                    <Select
+                      labelId="demo-multiple-checkbox-label"
+                      id="demo-multiple-checkbox"
+                      multiple
+                      value={personName}
+                      onChange={handleChange}
+                      input={<OutlinedInput label="Disciplina" />}
+                      renderValue={(selected) => selected.join(", ")}
+                      MenuProps={MenuProps}
+                    >
+                      {disciplinas.map((name) => (
+                        <MenuItem key={name} value={name}>
+                          <Checkbox checked={personName.indexOf(name) > -1} />
+                          <ListItemText primary={name} />
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                </div>
+                <div className="create-project-field-wrap">
+                  <FormControl className="create-project-field">
+                    <InputLabel id="demo-multiple-checkbox-label">
+                      Metodologia
+                    </InputLabel>
+                    <Select
+                      labelId="demo-multiple-checkbox-label"
+                      id="demo-multiple-checkbox"
+                      multiple
+                      value={personName}
+                      onChange={handleChange}
+                      input={<OutlinedInput label="Metodologia" />}
+                      renderValue={(selected) => selected.join(", ")}
+                      MenuProps={MenuProps}
+                    >
+                      {metodologias.map((name) => (
+                        <MenuItem key={name} value={name}>
+                          <Checkbox checked={personName.indexOf(name) > -1} />
+                          <ListItemText primary={name} />
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                </div>
+                <div className="create-project-field-wrap">
+                  <FormControl className="create-project-field">
+                    <InputLabel id="demo-multiple-checkbox-label">
+                      Campos de Criação
+                    </InputLabel>
+                    <Select
+                      labelId="demo-multiple-checkbox-label"
+                      id="demo-multiple-checkbox"
+                      multiple
+                      value={personName}
+                      onChange={handleChange}
+                      input={<OutlinedInput label="Campos de Criação" />}
+                      renderValue={(selected) => selected.join(", ")}
+                      MenuProps={MenuProps}
+                    >
+                      {camposDeCriacao.map((name) => (
+                        <MenuItem key={name} value={name}>
+                          <Checkbox checked={personName.indexOf(name) > -1} />
+                          <ListItemText primary={name} />
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                </div>
+                <div className="create-project-field-wrap">
+                  <FormControl className="create-project-field">
+                    <InputLabel id="demo-multiple-checkbox-label">
+                      Ferramentas
+                    </InputLabel>
+                    <Select
+                      labelId="demo-multiple-checkbox-label"
+                      id="demo-multiple-checkbox"
+                      multiple
+                      value={personName}
+                      onChange={handleChange}
+                      input={<OutlinedInput label="Ferramentas" />}
+                      renderValue={(selected) => selected.join(", ")}
+                      MenuProps={MenuProps}
+                    >
+                      {ferramentas.map((name) => (
+                        <MenuItem key={name} value={name}>
+                          <Checkbox checked={personName.indexOf(name) > -1} />
+                          <ListItemText primary={name} />
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                </div>
+                <div className="create-project-field-wrap">
+                  <FormControl className="create-project-field">
+                    <InputLabel id="demo-multiple-checkbox-label">
+                      Ano
+                    </InputLabel>
+                    <Select
+                      labelId="demo-multiple-checkbox-label"
+                      id="demo-multiple-checkbox"
+                      multiple
+                      value={personName}
+                      onChange={handleChange}
+                      input={<OutlinedInput label="Ano" />}
+                      renderValue={(selected) => selected.join(", ")}
+                      MenuProps={MenuProps}
+                    >
+                      {anos.map((name) => (
+                        <MenuItem key={name} value={name}>
+                          <Checkbox checked={personName.indexOf(name) > -1} />
+                          <ListItemText primary={name} />
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                </div>
+                <div className="create-project-field-wrap">
+                  <div className="buttons-wrap">
+                    <a href="/">
+                      <Button
+                        size="large"
+                        style={{
+                          textTransform: "none",
+                          background: "#FFFF",
+                          fontFamily: "Montserrat",
+                          color: "#B276FF",
+                          padding: "6px 22px",
+                        }}
+                      >
+                        Descartar
+                      </Button>
+                    </a>
+                    <Button
+                      size="large"
+                      style={{
+                        textTransform: "none",
+                        background: "#B276FF",
+                        fontFamily: "Montserrat",
+                        color: "#FFF",
+                        padding: "6px 22px",
+                      }}
+                    >
+                      Cadastrar
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
-        </div>
-    )
+      </div>
+    </div>
+  );
 }
