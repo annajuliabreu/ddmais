@@ -35,19 +35,53 @@ const disciplinas = [
   "Modelagem 3D",
   "História do Design",
 ];
+
 const metodologias = [
-  "Metodologia Ágil",
-  "Design Sprint",
   "Brainstorming",
+  "Design Sprint",
   "Double Diamond",
   "Design Thinking",
+  "Metodologia Ágil",
 ];
 
-const camposDeCriacao = [];
+const camposDeCriacao = [
+  "3D",
+  "Animação",
+  "Branding",
+  "Ilustração",
+  "Design Gráfico",
+  "Direção artística",
+  "Design UI/UX",
+  "Design de Interações",
+  "Identidade Visual",
+  "Fotografia",
+  "Web design"
+];
 
-const ferramentas = [];
+const ferramentas = [
+  "Figma",
+  "Adobe Photoshop",
+  "Adobe Illutrator",
+  "GIMP",
+  "Inkscape",
+  "CorelDraw",
+  "Blender",
+  "Canva",
+  "Krita",
+  "Paint Tool SAI",
+];
 
-const anos = [];
+const anos = [
+  "2015",
+  "2016",
+  "2017",
+  "2018",
+  "2019",
+  "2020",
+  "2021",
+  "2022",
+  "2023",
+];
 
 export default function ModalCadastrarProjeto() {
   const [personName, setPersonName] = useState([]);
@@ -63,64 +97,74 @@ export default function ModalCadastrarProjeto() {
       <div>
         <div className="modal-overlay">
           <div className="voltar">
-            <a href="/">
+            <a href="/logged">
               <Icon path={mdiClose} size={1} />
             </a>
           </div>
 
           <div className="modal-content-project">
+
             <form className="create-project-form">
               <div className="upload">
                 <div className="card-upload">
                   <span className="upload-title">Capa do projeto</span>
                   <div className="upload-area">
-                    <Button
-                      className="upload-button"
-                      size="large"
-                      style={{
-                        textTransform: "none",
-                        background: "#B276FF",
-                        fontFamily: "Montserrat",
-                        color: "#FFF",
-                        padding: "6px 22px",
-                      }}
-                    >
-                      Fazer upload da imagem
-                    </Button>
-                    <span className="upload-info">
-                      Tamanho mínimo de ”808x632px”
-                    </span>
+                    <div className="upload-content">
+                      <Button
+                        className="upload-button"
+                        size="large"
+                        style={{
+                          textTransform: "none",
+                          background: "#B276FF",
+                          fontFamily: "Montserrat",
+                          color: "#FFF",
+                          padding: "6px 22px",
+                        }}
+                      >
+                        Fazer upload da imagem
+                      </Button>
+                      <span className="upload-info">
+                        Tamanho mínimo de "808x632px"
+                      </span>
+                    </div>
                   </div>
                 </div>
 
                 <div className="card-upload">
                   <span className="upload-title">Apresentação do projeto</span>
                   <div className="upload-area">
-                    <Button
-                      className="upload-button"
-                      size="large"
-                      style={{
-                        textTransform: "none",
-                        background: "#B276FF",
-                        fontFamily: "Montserrat",
-                        color: "#FFF",
-                        padding: "6px 22px",
-                      }}
-                    >
-                      Fazer upload da imagem
-                    </Button>
-                    <span className="upload-info">
-                      Insira imagens no tamanho "1920x1080”
-                    </span>
+                    <div className="upload-content">
+                      <Button
+                        className="upload-button"
+                        size="large"
+                        style={{
+                          textTransform: "none",
+                          background: "#B276FF",
+                          fontFamily: "Montserrat",
+                          color: "#FFF",
+                          padding: "6px 22px",
+                        }}
+                      >
+                        Fazer upload da imagem
+                      </Button>
+                      <span className="upload-info">
+                        Insira imagens no tamanho de "1920x1080px"
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
+
               <div className="inputs-fields">
-                <h1>Cadastrar projeto</h1>
+
+                <div className="input-field-title"> 
+                  <h1>Cadastrar projeto</h1>
+                </div>
+
                 <div className="create-project-field-wrap">
                   <TextField
                     id="standard-required"
-                    label="Adicione um título para o Projeto"
+                    label="Adicione um título"
                     variant="standard"
                     className="create-project-field"
                   />
@@ -129,7 +173,7 @@ export default function ModalCadastrarProjeto() {
                 <div className="create-project-field-wrap">
                   <TextField
                     id="standard-required"
-                    label="Descrição do Projeto"
+                    label="Descrição do projeto"
                     variant="standard"
                     className="create-project-field"
                   />
@@ -254,9 +298,10 @@ export default function ModalCadastrarProjeto() {
                     </Select>
                   </FormControl>
                 </div>
-                <div className="create-project-field-wrap">
+
+                <div className="input-field-buttons">
                   <div className="buttons-wrap">
-                    <a href="/">
+                    <a href="/logged">
                       <Button
                         size="large"
                         style={{
@@ -265,6 +310,7 @@ export default function ModalCadastrarProjeto() {
                           fontFamily: "Montserrat",
                           color: "#B276FF",
                           padding: "6px 22px",
+                          width: "224px"
                         }}
                       >
                         Descartar
@@ -278,6 +324,7 @@ export default function ModalCadastrarProjeto() {
                         fontFamily: "Montserrat",
                         color: "#FFF",
                         padding: "6px 22px",
+                        width: "224px"
                       }}
                     >
                       Cadastrar
