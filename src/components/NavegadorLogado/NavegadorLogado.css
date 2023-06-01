@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+.nav{
+    width: 100vw;
+    height: 112px;
+    background-color: #ffffff;
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    padding: 36px;
+    border-bottom: 1px solid #ECECEC;
+    box-sizing: border-box;
+
+    overflow: hidden;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.nav .img{
+    padding: 18px 0px 0px 0px;
+}
+
+.nav .links{
+    margin-left: 16px;
+    display: flex;
+}
+
+.nav .div-left{
+    margin-left: auto;
+    display: flex;
+}
+  
+.nav .botao-login{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 42px;
+    border-radius: 4px;
+    background-color: #D9BBFF;
+    text-decoration: none;
+    cursor: pointer;
+    /* margin-right: 12px; */
+}
+
+.nav .botao-login:hover{
+    background-color: #B276FF;
+}
+
+.nav .botao-cadastrarProjeto{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    width: 184px;
+    height: 42px;
+    border: 1px solid #CCA4FF;
+    box-sizing: border-box;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-right: 12px;
+}
+
+.nav .botao-cadastrarProjeto:hover{
+    background-color: #cba4ff2d;
+}
+
+.nav .div-right{
+    display: flex;
+    align-items: center;
+}
+
+.nav .botao-home{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 42px;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-right: 6px;
+    margin-left: 24px;
+}
+
+.nav .botao-home:hover{
+    background-color: #cba4ff2d;
+}
+
+.nav .botao-home.active{
+    font-weight: bold;
+}
+
+.nav .botao-explorar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 42px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.nav .botao-explorar:hover{
+    background-color: #cba4ff2d;
+}
+
+.nav .botao-explorar.active{
+    font-weight: bold;
+}
+

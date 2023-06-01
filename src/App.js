@@ -13,6 +13,8 @@ import { Navegador } from './components/Navegador/Navegador';
 import { Modal } from './components/Modal/Modal';
 import { Galeria } from './components/Galeria/Galeria';
 
+import Logged from './pages/Logged/Logged';
+
 export function Projeto(){
   // let { id } = useParams();
   // console.log("projectId: ", id);
@@ -38,7 +40,8 @@ function App() {
           <Route path="/explorar" element={<Explorar />} />
           <Route path="/criarconta" element={<CriarConta />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/cadastrarprojeto" element={<CadastrarProjeto />} />
+          <Route path="/cadastrarProjeto" element={<CadastrarProjeto />} />
+          <Route path="/logged" element={<Logged />} />
 
           <Route exact path="/projeto" element={<Projeto />}/>
           <Route exact path="/projeto/:id" element={<Projeto />} ></Route>

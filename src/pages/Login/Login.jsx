@@ -59,7 +59,9 @@ function Login() {
             />
 
           </Box>
-          <Botao />
+          <a href="/logged">
+            <Botao />
+          </a>
           {/* <Button size="large" style={{ textTransform: 'none', background: '#B276FF', fontFamily: 'Montserrat', color: '#FFF', padding: '6px 22px' }}>Continuar</Button> */}
         </form>
 
