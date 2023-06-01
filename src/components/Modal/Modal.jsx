@@ -9,7 +9,7 @@ export function Modal() {
         <div>
             <div className="modal-overlay">
                 <div className="voltar">
-                    <a href="/home"><Icon path={mdiClose} size={1} /></a>
+                    <a href="/"><Icon path={mdiClose} size={1} /></a>
                 </div>
 
                 <div className="modal-content">

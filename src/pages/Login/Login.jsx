@@ -4,6 +4,18 @@ import { Button, TextField, Box } from '@mui/material';
 import "./Login.css"
 import Icon from '@mdi/react';
 import { mdiArrowLeft } from '@mdi/js';
+import React, { useState } from 'react';
+
+function Botao(){
+    const [count, setCount] = useState(0);
+    console.log(count)
+    function incrementCount(){
+      setCount(count + 1);
+    }
+    return(
+      <Button onClick={incrementCount} size="large" style={{ textTransform: 'none', background: '#B276FF', fontFamily: 'Montserrat', color: '#FFF', padding: '6px 22px' }}>Continuar</Button>
+    )
+}
 
 function Login() {
   return (
@@ -47,8 +59,8 @@ function Login() {
             />
 
           </Box>
-
-          <Button size="large" style={{ textTransform: 'none', background: '#B276FF', fontFamily: 'Montserrat', color: '#FFF', padding: '6px 22px' }}>Continuar</Button>
+          <Botao />
+          {/* <Button size="large" style={{ textTransform: 'none', background: '#B276FF', fontFamily: 'Montserrat', color: '#FFF', padding: '6px 22px' }}>Continuar</Button> */}
         </form>
 
         <span className="div-forms-span"> Esqueceu sua senha? </span>

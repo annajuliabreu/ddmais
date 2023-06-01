@@ -8,12 +8,12 @@ export function Navegador(){
     return(
         <nav className="nav">
             <div className="div-right">
-                <Link exact to="/"><img className="img" src="https://raw.githubusercontent.com/annajuliabreu/ddmais/b82e1d124f0e3bbc205bb84a12b1b6d3342a9b91/public/logo.svg" alt="" /></Link>
+                <Link exact to="/home"><img className="img" src="https://raw.githubusercontent.com/annajuliabreu/ddmais/b82e1d124f0e3bbc205bb84a12b1b6d3342a9b91/public/logo.svg" alt="" /></Link>
 
                 <div className="links">
                     <NavLink 
                         exact 
-                        to="/" 
+                        to="/home" 
                         className="botao-explorar">
                             Home
                     </NavLink>

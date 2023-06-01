@@ -12,10 +12,10 @@ export function Card({ projeto }) {
         navigate("/projeto/"+projeto.id);
     }
     return (
-        <div className="box" onClick={handleClick}>
-            <div className="overlay-image">
-                <div className="overlay"></div>
+        <div className="box">
+            <div className="overlay-image" onClick={handleClick}>
                 <img className="img" src={projeto.imgLink} alt="" />
+                <div className="overlay"></div>
             </div>
             <div><span className="legenda">{projeto.legenda}</span></div>
         </div>

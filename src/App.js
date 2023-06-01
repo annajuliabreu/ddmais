@@ -1,19 +1,21 @@
 import './App.css';
 import * as React from 'react';
 import { PaginaPrincipal } from './pages/PaginaPrincipal/PaginaPrincipal';
-import { Routes, Route, BrowserRouter, useParams} from "react-router-dom"
+import { Routes, Route, BrowserRouter} from "react-router-dom"
+// import { useParams } from "react-router-dom"
 import Login from './pages/Login/Login';
 import CriarConta from './pages/CriarConta/CriarConta';
 import Explorar from './pages/Explorar/Explorar';
 import PaginaErro404 from './pages/PaginaErro404/PaginaErro404';
+import CadastrarProjeto from './pages/CadastrarProjeto/CadastrarProjeto';
 
 import { Navegador } from './components/Navegador/Navegador';
 import { Modal } from './components/Modal/Modal';
 import { Galeria } from './components/Galeria/Galeria';
 
 export function Projeto(){
-  let { id } = useParams();
-  console.log("projectId: ", id);
+  // let { id } = useParams();
+  // console.log("projectId: ", id);
 
   return(
     <div>
@@ -36,6 +38,7 @@ function App() {
           <Route path="/explorar" element={<Explorar />} />
           <Route path="/criarconta" element={<CriarConta />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/cadastrarprojeto" element={<CadastrarProjeto />} />
 
           <Route exact path="/projeto" element={<Projeto />}/>
           <Route exact path="/projeto/:id" element={<Projeto />} ></Route>

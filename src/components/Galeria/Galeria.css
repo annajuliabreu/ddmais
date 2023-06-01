@@ -16,6 +16,7 @@
     box-sizing: border-box;
     /* margin: 12px; */
     border-radius: 4px;
+    background-color: darkviolet;
 }
 
 .box{
@@ -26,30 +27,39 @@
 .box .overlay-image{
     margin-bottom: 12px;
     transition: transform 500ms;
+    /* position: relative; */
 }
 
-.overlay-image .overlay{
+/* .box .overlay-image .overlay{
     width: 100%;
     height: 100%;
-    /* color: white; */
-    background-color: rgba(0, 0, 0, 0.287);
+
+    color: white;
+    background-color: rgba(0, 0, 0, 0.250);
+    border-radius: 4px;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     opacity: 0;
     transition: opacity 500ms;
+
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .overlay-image:hover .overlay{
     opacity: 1;
 }
 
-/* .overlay-image:hover{
-    transform: scale(1.15, 1.15)
+.overlay-image:hover{
+    transform: scale(1.15, 1.15);
+    opacity: 1;
 } */
 
 .legenda{
-    /* margin: 8px; */
     font-size: 16px;
     font-weight: bold;
 }
