@@ -1,0 +1,52 @@
+.conteudo-minhaconta{
+    margin-top: 112px;
+    padding-top: 36px;
+}
+
+.box-minhaconta{
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 48px;
+    gap: 36px;
+
+    position: absolute;
+    width: 335px;
+    height: 360px;
+    left: calc(50% - 335px/2 - 0.5px);
+    top: calc(50% - 360px/2);
+
+
+    border: 1px solid #D9BBFF;
+    border-radius: 8px;
+}
+
+.icon{
+    position: absolute;
+    width: 115px;
+    height: 115px;
+    left: 110px;
+    top: 48px;
+    background: #D9BBFF;
+    border-radius: 100%;
+}
+
+.infos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.info{
+    box-sizing: border-box;
+    margin-top: 8px;
+}
+
+.info-h3{
+    box-sizing: border-box;
+    margin-top: 16px;
+}

@@ -58,7 +58,8 @@
     border-radius: 4px;
     width: 184px;
     height: 42px;
-    border: 1px solid #CCA4FF;
+    /* border: 1px solid #CCA4FF; */
+    background-color: #D9BBFF;
     box-sizing: border-box;
     border-radius: 4px;
     text-decoration: none;
@@ -67,7 +68,8 @@
 }
 
 .nav .botao-cadastrarProjeto:hover{
-    background-color: #cba4ff2d;
+    /* background-color: #cba4ff2d; */
+    background-color: #B276FF;
 }
 
 .nav .div-right{

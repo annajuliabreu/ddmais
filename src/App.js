@@ -14,6 +14,7 @@ import { Modal } from './components/Modal/Modal';
 import { Galeria } from './components/Galeria/Galeria';
 
 import Logged from './pages/Logged/Logged';
+import MinhaConta from './pages/MinhaConta/MinhaConta';
 
 export function Projeto(){
   // let { id } = useParams();
@@ -42,6 +43,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/cadastrarProjeto" element={<CadastrarProjeto />} />
           <Route path="/logged" element={<Logged />} />
+          <Route path="/minhaconta" element={<MinhaConta />} />
 
           <Route exact path="/projeto" element={<Projeto />}/>
           <Route exact path="/projeto/:id" element={<Projeto />} ></Route>

@@ -17,11 +17,11 @@ function Admin() {
         setAge(event.target.value);
     };
     return (
-        <FormControl sx={{ backgroundColor: '#D9BBFF', height:'100%', borderRadius: '4px', minWidth: 120 }} size="small">
+        <FormControl sx={{ height:'100%', borderRadius: '4px', minWidth: 72}} size="small">
             <InputLabel id="demo-select-small-label">
                 <Icon path={mdiAccountCircle} 
                     size={1}
-                    color="black"/>
+                    color="#B276FF"/>
             </InputLabel>
             <Select
                 labelId="demo-select-small-label"
@@ -30,7 +30,9 @@ function Admin() {
                 label="Age"
                 onChange={handleChange}
             >
-                <MenuItem value={10}>Minha conta</MenuItem>
+                <a href="/minhaconta">
+                    <MenuItem value={10}>Minha conta</MenuItem>
+                </a>
                 <a href="/">
                     <MenuItem value={20}>Logout</MenuItem>
                 </a>
