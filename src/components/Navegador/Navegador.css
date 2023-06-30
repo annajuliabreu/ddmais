@@ -102,7 +102,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 90px;
+    /* width: 100px; */
     height: 42px;
     box-sizing: border-box;
     border-radius: 4px;

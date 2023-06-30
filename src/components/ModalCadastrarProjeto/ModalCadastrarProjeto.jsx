@@ -164,7 +164,7 @@ export default function ModalCadastrarProjeto() {
                 <div className="create-project-field-wrap">
                   <TextField
                     id="standard-required"
-                    label="Adicione um título"
+                    label="Adicione o título do projeto"
                     variant="standard"
                     className="create-project-field"
                   />
@@ -172,10 +172,15 @@ export default function ModalCadastrarProjeto() {
 
                 <div className="create-project-field-wrap">
                   <TextField
-                    id="standard-required"
-                    label="Descrição do projeto"
-                    variant="standard"
+                    // id="standard-required"
+                    label="Adicione uma descrição do projeto"
+                    // variant="standard"
                     className="create-project-field"
+                    id="standard-multiline-flexible"
+                  //  label="Multiline"
+                    multiline
+                  maxRows={4}
+                  variant="standard"
                   />
                 </div>
                 <div className="create-project-field-wrap">

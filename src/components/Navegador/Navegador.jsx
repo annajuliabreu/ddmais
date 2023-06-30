@@ -1,6 +1,8 @@
 import "./Navegador.css"
 import "./logo.svg"
 import { Link, NavLink } from "react-router-dom"
+// import Icon from '@mdi/react';
+// import { mdiMagnify } from '@mdi/js';
 
 export function Navegador(){
     // let Botao = (props) => (<a className="link-navegador" href="https://instagram.com/ddmais.ufc">{props.linkTexto}</a>);
@@ -21,7 +23,8 @@ export function Navegador(){
                     <NavLink 
                         to="/explorar" 
                         className="botao-explorar">
-                            Explorar
+                            Explorar 
+                            {/* <Icon path={mdiMagnify} size={1} color="#000000"/> */}
                     </NavLink>
                 </div>
 
@@ -30,7 +33,7 @@ export function Navegador(){
             </div>
            
            <div className="div-left">
-                <Link className="botao-cadastrar" to="/criarconta">Criar conta</Link>
+                {/* <Link className="botao-cadastrar" to="/criarconta">Criar conta</Link> */}
                 <Link className="botao-login" to="/login">Login</Link>
            </div>
         </nav>
