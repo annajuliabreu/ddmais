@@ -6,7 +6,7 @@ import Icon from '@mdi/react';
 import { mdiArrowLeft } from '@mdi/js';
 import {  } from 'react-hook-form';
 
-function FormsCriarConta() {
+function FormsCriarConta(){
 
   return (
 

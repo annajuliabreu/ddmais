@@ -1,7 +1,7 @@
 import './App.css';
 import * as React from 'react';
 import { PaginaPrincipal } from './pages/PaginaPrincipal/PaginaPrincipal';
-import { Routes, Route, BrowserRouter} from "react-router-dom"
+import { Routes, Route, BrowserRouter } from "react-router-dom"
 // import { useParams } from "react-router-dom"
 import Login from './pages/Login/Login';
 import CriarConta from './pages/CriarConta/CriarConta';
@@ -16,11 +16,14 @@ import { Galeria } from './components/Galeria/Galeria';
 import Logged from './pages/Logged/Logged';
 import MinhaConta from './pages/MinhaConta/MinhaConta';
 
-export function Projeto(){
+// import { AuthProvider } from './contexts/auth';
+// import useAuth from './hooks/useAuth'
+
+export function Projeto() {
   // let { id } = useParams();
   // console.log("projectId: ", id);
 
-  return(
+  return (
     <div>
       <Navegador />
       <Modal />
@@ -28,6 +31,12 @@ export function Projeto(){
     </div>
   )
 }
+
+// const Private = ({ Item }) => {
+//   const { logged } = useAuth();
+
+//   return logged > 0 ? <Item /> : <Login />;
+// }
 
 function App() {
 
@@ -45,10 +54,10 @@ function App() {
           <Route path="/logged" element={<Logged />} />
           <Route path="/minhaconta" element={<MinhaConta />} />
 
-          <Route exact path="/projeto" element={<Projeto />}/>
+          <Route exact path="/projeto" element={<Projeto />} />
           <Route exact path="/projeto/:id" element={<Projeto />} ></Route>
 
-          <Route path="*" element={<PaginaErro404 />}/>
+          <Route path="*" element={<PaginaErro404 />} />
         </Routes>
       </BrowserRouter>
     </div>
