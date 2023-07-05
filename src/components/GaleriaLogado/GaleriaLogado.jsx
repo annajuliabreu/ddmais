@@ -1,9 +1,13 @@
 import "./Galeria.css"
 import React, { useState } from 'react';
+// import BotaoEditar from '../BotaoEditar/BotaoEditar'
 
 // import { useHistory } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 // import BotaoEditar from "../BotaoEditar/BotaoEditar";
+import Icon from '@mdi/react';
+import { mdiPencilOutline } from '@mdi/js';
+
 
 export function Card({ projeto }) {
     const navigate = useNavigate();
@@ -17,15 +21,17 @@ export function Card({ projeto }) {
 
     return (
         <div className="box">
-            <div className="overlay-image"
-                onClick={handleClick}
-                onMouseEnter={() => setIsShown(true)}
-                onMouseLeave={() => setIsShown(false)}
-            >
+                <div className="overlay-image"
+                    onClick={handleClick}
+                    onMouseEnter={() => setIsShown(true)}
+                    onMouseLeave={() => setIsShown(false)}
+                >
                 {isShown && (
                     <div>
                         {/* <BotaoEditar/> */}
-                        {/* <button> oi </button> */}
+                        <button className="botao-editar"> 
+                            <Icon path={mdiPencilOutline} size={1} />
+                        </button>
                     </div>
                 )}
                 <img className="img" src={projeto.imgLink} alt="" />
