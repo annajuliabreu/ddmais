@@ -9,7 +9,9 @@ import FormControl from "@mui/material/FormControl";
 import ListItemText from "@mui/material/ListItemText";
 import Select from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import api from "../../services/api";
+import { useParams } from "react-router-dom";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -84,14 +86,83 @@ const anos = [
 ];
 
 export default function ModalCadastrarProjeto() {
-  const [personName, setPersonName] = useState([]);
+  const [disciplinasSelecionadas, setDisciplinaSelecionadas] = useState([]);
+  const [metodologiasSelecionadas, setMetodologiasSelecionadas] = useState([])
+  const [camposCriacao, setCamposCriacao] = useState([])
+  const [ferramentasSelecionadas, setFerramentasSelecionadas] = useState([])
+  const [anosSelecionados, setAnosSelecionados] = useState([])
+  const [titulo, setTitulo] = useState('')
+  const [descricao, setDescricao] = useState('')
+  const [cover, setCover] = useState()
+  const [images, setImages] = useState()
 
-  const handleChange = (event) => {
-    const {
-      target: { value },
-    } = event;
-    setPersonName(typeof value === "string" ? value.split(",") : value);
-  };
+  const { id } = useParams()
+
+  useEffect(() => {
+    if (id) {
+      api.get(`/project/${id}`).then(({ data }) => {
+        setTitulo(data.title)
+        setDescricao(data.description)
+        setDisciplinaSelecionadas(data.subjects)
+        setMetodologiasSelecionadas(data.methodology)
+        setCamposCriacao(data.creationFields)
+        setFerramentasSelecionadas(data.tools)
+        setAnosSelecionados(data.years)
+      })
+    }
+  }, [])
+
+  async function handleSubmit(event) {
+    event.preventDefault()
+    if (id) {
+      await api.put(`/project/${id}`, {
+        title: titulo,
+        description: descricao,
+        subjects: disciplinasSelecionadas,
+        methodology: metodologiasSelecionadas,
+        creationFields: camposCriacao,
+        tools: ferramentasSelecionadas,
+        years: anosSelecionados, 
+      })
+
+      const formDataCover = new FormData()
+      formDataCover.append('cover', cover)
+      formDataCover.append('projectId', id)
+
+      const formDataImages = new FormData()
+      for (const pic of images) {
+        formDataImages.append('files', pic);
+      }
+      formDataImages.append('projectId', id)
+
+      await api.post(`/file/cover`, formDataCover)
+      await api.post(`/file/images`, formDataImages)
+    } else {
+      const { data: { _id } } = await api.post('/project', {
+        title: titulo,
+        description: descricao,
+        subjects: disciplinasSelecionadas,
+        methodology: metodologiasSelecionadas,
+        creationFields: camposCriacao,
+        tools: ferramentasSelecionadas,
+        years: anosSelecionados, 
+      })
+
+      const formDataCover = new FormData()
+      formDataCover.append('cover', cover)
+      formDataCover.append('projectId', _id)
+
+      const formDataImages = new FormData()
+      for (const pic of images) {
+        formDataImages.append('files', pic);
+      }
+      formDataImages.append('projectId', _id)
+
+      await api.post(`/file/cover`, formDataCover)
+      await api.post(`/file/images`, formDataImages)
+    }
+  }
+
   return (
     <div>
       <div>
@@ -104,13 +175,21 @@ export default function ModalCadastrarProjeto() {
 
           <div className="modal-content-project">
 
-            <form className="create-project-form">
+            <form className="create-project-form" onSubmit={handleSubmit}>
               <div className="upload">
+                <input id='cover' onChange={(evt) => setCover(evt.target.files[0])} type="file" style={{ display: 'none' }} accept=".jpg, .jpeg, .png" />
+                <input id='otherImages' multiple onChange={(evt) => {
+                  setImages(evt.target.files)
+                }} type="file" style={{ display: 'none' }} accept=".jpg, .jpeg, .png" />
                 <div className="card-upload">
                   <span className="upload-title">Capa do projeto</span>
                   <div className="upload-area">
                     <div className="upload-content">
                       <Button
+                        type="button"
+                        onClick={() => {
+                          document.getElementById('cover').click()
+                        }}
                         className="upload-button"
                         size="large"
                         style={{
@@ -135,6 +214,10 @@ export default function ModalCadastrarProjeto() {
                   <div className="upload-area">
                     <div className="upload-content">
                       <Button
+                        type="button"
+                        onClick={() => {
+                          document.getElementById('otherImages').click()
+                        }}
                         className="upload-button"
                         size="large"
                         style={{
@@ -165,6 +248,8 @@ export default function ModalCadastrarProjeto() {
                   <TextField
                     id="standard-required"
                     label="Adicione o título do projeto"
+                    value={titulo}
+                    onChange={event => setTitulo(event.target.value)}
                     variant="standard"
                     className="create-project-field"
                   />
@@ -177,6 +262,8 @@ export default function ModalCadastrarProjeto() {
                     // variant="standard"
                     className="create-project-field"
                     id="standard-multiline-flexible"
+                    value={descricao}
+                    onChange={event => setDescricao(event.target.value)}
                   //  label="Multiline"
                     multiline
                   maxRows={4}
@@ -192,15 +279,17 @@ export default function ModalCadastrarProjeto() {
                       labelId="demo-multiple-checkbox-label"
                       id="demo-multiple-checkbox"
                       multiple
-                      value={personName}
-                      onChange={handleChange}
+                      value={disciplinasSelecionadas}
+                      onChange={event => {
+                        setDisciplinaSelecionadas(event.target.value)
+                      }}
                       input={<OutlinedInput label="Disciplina" />}
                       renderValue={(selected) => selected.join(", ")}
                       MenuProps={MenuProps}
                     >
                       {disciplinas.map((name) => (
                         <MenuItem key={name} value={name}>
-                          <Checkbox checked={personName.indexOf(name) > -1} />
+                          <Checkbox checked={disciplinasSelecionadas.indexOf(name) > -1} />
                           <ListItemText primary={name} />
                         </MenuItem>
                       ))}
@@ -216,15 +305,15 @@ export default function ModalCadastrarProjeto() {
                       labelId="demo-multiple-checkbox-label"
                       id="demo-multiple-checkbox"
                       multiple
-                      value={personName}
-                      onChange={handleChange}
+                      value={metodologiasSelecionadas}
+                      onChange={event => setMetodologiasSelecionadas(event.target.value)}
                       input={<OutlinedInput label="Metodologia" />}
                       renderValue={(selected) => selected.join(", ")}
                       MenuProps={MenuProps}
                     >
                       {metodologias.map((name) => (
                         <MenuItem key={name} value={name}>
-                          <Checkbox checked={personName.indexOf(name) > -1} />
+                          <Checkbox checked={metodologiasSelecionadas.indexOf(name) > -1} />
                           <ListItemText primary={name} />
                         </MenuItem>
                       ))}
@@ -240,15 +329,15 @@ export default function ModalCadastrarProjeto() {
                       labelId="demo-multiple-checkbox-label"
                       id="demo-multiple-checkbox"
                       multiple
-                      value={personName}
-                      onChange={handleChange}
+                      value={camposCriacao}
+                      onChange={event => setCamposCriacao(event.target.value)}
                       input={<OutlinedInput label="Campos de Criação" />}
                       renderValue={(selected) => selected.join(", ")}
                       MenuProps={MenuProps}
                     >
                       {camposDeCriacao.map((name) => (
                         <MenuItem key={name} value={name}>
-                          <Checkbox checked={personName.indexOf(name) > -1} />
+                          <Checkbox checked={camposCriacao.indexOf(name) > -1} />
                           <ListItemText primary={name} />
                         </MenuItem>
                       ))}
@@ -264,15 +353,15 @@ export default function ModalCadastrarProjeto() {
                       labelId="demo-multiple-checkbox-label"
                       id="demo-multiple-checkbox"
                       multiple
-                      value={personName}
-                      onChange={handleChange}
+                      value={ferramentasSelecionadas}
+                      onChange={event => setFerramentasSelecionadas(event.target.value)}
                       input={<OutlinedInput label="Ferramentas" />}
                       renderValue={(selected) => selected.join(", ")}
                       MenuProps={MenuProps}
                     >
                       {ferramentas.map((name) => (
                         <MenuItem key={name} value={name}>
-                          <Checkbox checked={personName.indexOf(name) > -1} />
+                          <Checkbox checked={ferramentasSelecionadas.indexOf(name) > -1} />
                           <ListItemText primary={name} />
                         </MenuItem>
                       ))}
@@ -288,15 +377,15 @@ export default function ModalCadastrarProjeto() {
                       labelId="demo-multiple-checkbox-label"
                       id="demo-multiple-checkbox"
                       multiple
-                      value={personName}
-                      onChange={handleChange}
+                      value={anosSelecionados}
+                      onChange={event => setAnosSelecionados(event.target.value)}
                       input={<OutlinedInput label="Ano" />}
                       renderValue={(selected) => selected.join(", ")}
                       MenuProps={MenuProps}
                     >
                       {anos.map((name) => (
                         <MenuItem key={name} value={name}>
-                          <Checkbox checked={personName.indexOf(name) > -1} />
+                          <Checkbox checked={anosSelecionados.indexOf(name) > -1} />
                           <ListItemText primary={name} />
                         </MenuItem>
                       ))}
@@ -322,6 +411,7 @@ export default function ModalCadastrarProjeto() {
                       </Button>
                     </a>
                     <Button
+                      type="submit"
                       size="large"
                       style={{
                         textTransform: "none",
@@ -332,7 +422,7 @@ export default function ModalCadastrarProjeto() {
                         width: "224px"
                       }}
                     >
-                      Cadastrar
+                      {id ? 'Salvar' : 'Cadastrar'}
                     </Button>
                   </div>
                 </div>

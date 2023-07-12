@@ -38,7 +38,6 @@ export default function MinhaConta() {
                             )
                         )
     
-    console.log(contas)
 
     return (
         <div>

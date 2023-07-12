@@ -8,11 +8,9 @@ import Select from '@mui/material/Select';
 
 
 
-export default function Filtro(){
-    const [age, setAge] = React.useState('');
-
+export default function Filtro({ value, onChange }){
     const handleChange = (event) => {
-      setAge(event.target.value);
+      onChange(event.target.value);
     };
   
     return (
@@ -26,15 +24,16 @@ export default function Filtro(){
         <Select
           labelId="demo-select-small-label"
           id="demo-select-small"
-          value={age}
+          value={value}
           label="Age"
           onChange={handleChange}
         >
-            <MenuItem value={10}>Disciplina</MenuItem>
-            <MenuItem value={10}>Metodologia</MenuItem>
-            <MenuItem value={20}>Campos de criação</MenuItem>
-            <MenuItem value={30}>Ferramenta</MenuItem>
-            <MenuItem value={30}>Ano</MenuItem>
+            <MenuItem value={'title'}>Titulo</MenuItem>
+            <MenuItem value={'subjects'}>Disciplina</MenuItem>
+            <MenuItem value={'methodology'}>Metodologia</MenuItem>
+            <MenuItem value={'creationFields'}>Campos de criação</MenuItem>
+            <MenuItem value={'tools'}>Ferramenta</MenuItem>
+            <MenuItem value={'years'}>Ano</MenuItem>
         </Select>
       </FormControl>
     );

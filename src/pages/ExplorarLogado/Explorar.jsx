@@ -1,18 +1,17 @@
 import { useState } from "react"
 import Filtro from "../../components/Filtro/Filtro"
 import { Galeria } from "../../components/Galeria/Galeria"
-import { Navegador } from "../../components/Navegador/Navegador"
 import Pesquisa from "../../components/Pesquisa/Pesquisa"
-import api from "../../services/api"
 import "./Explorar.css"
+import NavegadorLogado from "../../components/NavegadorLogado/NavegadorLogado"
 
-export default function Explorar(){
+export default function ExplorarLogado(){
     const [term, setTerm] = useState()
     const [property, setProperty] = useState()
     
     return(
         <div className="explorar">
-            <Navegador />
+            <NavegadorLogado />
 
             <div className="pesquisa">
                 <Filtro value={property} onChange={(value) => setProperty(value)} />

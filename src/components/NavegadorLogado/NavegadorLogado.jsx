@@ -5,17 +5,20 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-
+import useAuth from '../../hooks/useAuth'
 import Icon from '@mdi/react';
 import { mdiAccountCircle } from '@mdi/js';
 
 
 function Admin() {
     const [age, setAge] = React.useState('');
+    const { logout } = useAuth()
 
     const handleChange = (event) => {
         setAge(event.target.value);
     };
+
+
     return (
         <FormControl sx={{ height:'100%', borderRadius: '4px', minWidth: 72}} size="small">
             <InputLabel id="demo-select-small-label">
@@ -33,8 +36,10 @@ function Admin() {
                 <a href="/minhaconta">
                     <MenuItem value={10}>Minha conta</MenuItem>
                 </a>
-                <a href="/">
-                    <MenuItem value={20}>Logout</MenuItem>
+                <a href='/home'>
+                    <MenuItem onClick={() => {
+                        logout()
+                    }} value={20}>Logout</MenuItem>
                 </a>
             </Select>
         </FormControl>
@@ -45,18 +50,18 @@ export default function NavegadorLogado() {
     return (
         <nav className="nav">
             <div className="div-right">
-                <Link exact to="/home"><img className="img" src="https://raw.githubusercontent.com/annajuliabreu/ddmais/b82e1d124f0e3bbc205bb84a12b1b6d3342a9b91/public/logo.svg" alt="" /></Link>
+                <Link exact to="/logged"><img className="img" src="https://raw.githubusercontent.com/annajuliabreu/ddmais/b82e1d124f0e3bbc205bb84a12b1b6d3342a9b91/public/logo.svg" alt="" /></Link>
 
                 <div className="links">
                     <NavLink
                         exact
-                        to="/home"
+                        to="/logged"
                         className="botao-explorar">
                         Home
                     </NavLink>
 
                     <NavLink
-                        to="/explorar"
+                        to="/logged/explorar"  
                         className="botao-explorar">
                         Explorar
                     </NavLink>
